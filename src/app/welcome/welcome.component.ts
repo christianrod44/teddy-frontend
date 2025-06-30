@@ -22,7 +22,7 @@ export class WelcomeComponent {
   enterApp(): void {
     if (this.userName.trim()) {
       localStorage.setItem('userName', this.userName.trim());
-      this.router.navigate(['/clients']);
+      this.router.navigate(['/clients-list']);
     } else {
       alert('Por favor, digite seu nome para continuar!');
     }
