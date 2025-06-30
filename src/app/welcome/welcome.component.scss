@@ -1,0 +1,62 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.welcome-card {
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.input-and-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.1em;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: #888;
+  }
+
+  &:focus {
+    border-color: #EC6724;
+  }
+}
+
+button {
+  width: 100%;
+  background-color: #EC6724;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: #e66a2e;
+  }
+}   
