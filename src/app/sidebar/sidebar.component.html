@@ -1,0 +1,29 @@
+<div class="sidebar-overlay" [class.open]="isOpen" (click)="onCloseClick()"></div>
+
+<aside class="sidebar" [class.open]="isOpen">
+  <div class="sidebar-header">
+    <img src="img/logo_teddy.png" alt="Teddy Lopes Finance Logo" class="sidebar-logo">
+    <button class="close-button" (click)="onCloseClick()">
+      <img *ngIf="isOpen" src="img/seta_sidebar.png" alt="Fechar Menu" class="close-icon">
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li>
+        <a routerLink="/home" (click)="onLinkClick()">
+          <span class="icon">&#x2302;</span> Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/clients-list" (click)="onLinkClick()" class="active">
+          <span class="icon">&#x1F464;</span> Clientes
+        </a>
+      </li>
+      <li>
+        <a routerLink="/selected-clients" (click)="onLinkClick()">
+          <span class="icon">&#x2611;</span> Clientes selecionados
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>

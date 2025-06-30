@@ -1,0 +1,22 @@
+<header class="app-header">
+  <div class="menu-and-logo">
+    <button class="hamburger-menu" (click)="onToggleSidebar()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+    <div class="logo-container">
+      <img src="img/logo_teddy.png" alt="Teddy Lopes Finance Logo" class="logo">
+    </div>
+  </div>
+  <nav class="main-nav">
+    <ul>
+      <li><a routerLink="/clients-list" class="active">Clientes</a></li>
+      <li><a routerLink="/selected-clients">Clientes selecionados</a></li>
+      <li><a routerLink="/logout">Sair</a></li>
+    </ul>
+  </nav>
+  <div class="user-greeting">
+    Olá, {{ userName }}!
+  </div>
+</header>

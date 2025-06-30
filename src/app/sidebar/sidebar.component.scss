@@ -1,0 +1,128 @@
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: rgb(0 0 0 / 75%);;
+    border-bottom: 1px solid #eee;
+    position: relative;
+  }
+
+  .sidebar-logo {
+    height: 45px;
+    width: auto;
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    outline: none;
+
+    position: absolute;
+    top: 105%;
+    right: -27px;
+    transform: translateY(-50%);
+    z-index: 1001;
+
+    .close-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .sidebar-nav {
+    padding: 20px 0;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          display: flex;
+          align-items: center;
+          padding: 15px 25px;
+          text-decoration: none;
+          color: #333;
+          font-size: 1.1em;
+          transition: background-color 0.2s ease, color 0.2s ease;
+
+          .icon {
+            font-size: 1.4em;
+            margin-right: 15px;
+            color: #666;
+          }
+
+          &:hover {
+            background-color: #f0f0f0;
+            color: #EC6724;
+
+            .icon {
+              color: #EC6724;
+            }
+          }
+
+          &.active {
+            background-color: #f7f7f7;
+            color: #EC6724;
+            font-weight: 600;
+            border-right: 3px solid #EC6724;
+            padding-right: 20px;
+
+            .icon {
+              color: #EC6724;
+            }
+          }
+        }
+      }
+    }
+  }
+}
