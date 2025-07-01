@@ -10,17 +10,17 @@
   <nav class="sidebar-nav">
     <ul>
       <li>
-        <a routerLink="/home" (click)="onLinkClick()">
+        <a routerLink="/home" routerLinkActive="active" (click)="onLinkClick()">
           <span class="icon">&#x2302;</span> Home
         </a>
       </li>
       <li>
-        <a routerLink="/clients-list" (click)="onLinkClick()" class="active">
+        <a routerLink="/clients-list" routerLinkActive="active" (click)="onLinkClick()">
           <span class="icon">&#x1F464;</span> Clientes
         </a>
       </li>
       <li>
-        <a routerLink="/selected-clients" (click)="onLinkClick()">
+        <a routerLink="/clients-selected" routerLinkActive="active" (click)="onLinkClick()">
           <span class="icon">&#x2611;</span> Clientes selecionados
         </a>
       </li>

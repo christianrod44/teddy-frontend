@@ -1,0 +1,32 @@
+<app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="toggleSidebarState()"></app-sidebar>
+<app-header [userName]="userNameFromStorage" (toggleSidebar)="toggleSidebarState()"></app-header>
+
+<div class="selected-clients-main-content">
+  <div class="list-header"> <div class="clients-info">
+      <h2>Clientes Selecionados ({{ selectedClients.length }})</h2>
+    </div>
+    </div>
+
+  <ng-container *ngIf="selectedClients.length > 0; else noSelectedClients">
+    <div class="clients-cards-grid"> <div class="client-card" *ngFor="let client of selectedClients">
+        <h3 class="client-name">{{ client.name }}</h3>
+        <p class="client-info">Salário: {{ client.salary | currency:'BRL':'symbol':'1.2-2' }}</p>
+        <p class="client-info">Empresa: {{ client.companyValuation | currency:'BRL':'symbol':'1.2-2' }}</p>
+
+        <div class="card-actions">
+          <button class="action-button select-toggle remove-selection" (click)="onRemoveSelection(client)" title="Remover Cliente Selecionado">
+            <img src="img/minus_red.png" alt="Remover Seleção"> </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noSelectedClients>
+    <p class="placeholder-text">Nenhum cliente selecionado.</p>
+  </ng-template>
+
+  <div class="clear-selected-clients-section">
+    <button class="clear-selected-clients-button" (click)="onClearSelectedClients()">Limpar clientes selecionados</button>
+  </div>
+
+  </div>
