@@ -61,9 +61,8 @@
 }
 
 .modal-actions {
-  display: flex; /* Mantém flex para centralização, mas agora só tem um item */
-  justify-content: center; /* Centraliza o único botão */
-  // gap: 15px; /* Não é mais necessário, pois só há um botão */
+  display: flex;
+  justify-content: center;
 
   button {
     padding: 12px 25px;
@@ -72,12 +71,12 @@
     font-size: 1em;
     font-weight: bold;
     transition: background-color 0.2s ease, border-color 0.2s ease;
-    width: 100%; /* FAZ O BOTÃO OCUPAR A LARGURA TOTAL DISPONÍVEL */
-    max-width: 400px; /* Adicionei um max-width para que ele não fique excessivamente largo em modais muito amplos, se desejar. Ajuste ou remova se não for necessário. */
+    width: 100%;
+    max-width: 400px;
   }
 
   .confirm-button {
-    background-color: #EC6724; /* Cor laranja do botão "Criar cliente" */
+    background-color: #EC6724;
     color: white;
     border: 1px solid #EC6724;
     &:hover {
@@ -85,15 +84,4 @@
       border-color: #e07200;
     }
   }
-
-  /* O SELETOR .cancel-button NÃO É MAIS NECESSÁRIO */
-  // .cancel-button {
-  //   background-color: white;
-  //   color: #666;
-  //   border: 1px solid #ccc;
-  //   &:hover {
-  //     background-color: #f0f0f0;
-  //     border-color: #bbb;
-  //   }
-  // }
 }

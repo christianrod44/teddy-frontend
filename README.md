@@ -1,59 +1,81 @@
-# TeddyFrontend
+# Teddy - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Este é o projeto frontend do Teddy, desenvolvido com Angular. Ele permite a gestão de clientes, visualização de dados, e interação com APIs para operações CRUD.
 
-## Development server
+## Tecnologias Utilizadas
 
-To start a local development server, run:
+* **Angular CLI**: Para gerenciar o projeto e os builds.
+* **Angular (versão 16+)**: Framework principal para construção da interface.
+* **TypeScript**: Linguagem de programação.
+* **SCSS**: Para estilos CSS.
 
-```bash
-ng serve
-```
+## Pré-requisitos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Antes de começar, certifique-se de que você tem as seguintes ferramentas instaladas em sua máquina:
 
-## Code scaffolding
+* **Node.js**: Versão 18.x ou superior. (Recomendado o uso de um gerenciador de versão como NVM ou Volta).
+    * Você pode baixar o Node.js em [nodejs.org](https://nodejs.org/).
+* **npm** (Node Package Manager) ou **Yarn** ou **pnpm**: Gerenciador de pacotes do Node.js. Geralmente, vem junto com a instalação do Node.js.
+    * Verifique a versão do npm: `npm -v`
+    * Se for usar pnpm: `npm install -g pnpm`
+    * Se for usar Yarn: `npm install -g yarn`
+* **Angular CLI**: Versão 19.x ou superior.
+    * Instale o Angular CLI globalmente com: `npm install -g @angular/cli`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Instalação
 
-```bash
-ng generate component component-name
-```
+Siga os passos abaixo para configurar e rodar o projeto em sua máquina local.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1.  **Clone o repositório:**
 
-```bash
-ng generate --help
-```
+    ```bash
+    git clone [https://github.com/christianrod44/teddy-frontend.git](https://github.com/christianrod44/teddy-frontend.git)
+    cd teddy-frontend
+    ```
 
-## Building
+2.  **Instale as dependências:**
+    Escolha o gerenciador de pacotes de sua preferência:
 
-To build the project run:
+    ```bash
+    # Usando npm (padrão)
+    npm install
 
-```bash
-ng build
-```
+    # Ou usando yarn
+    # yarn install
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+    # Ou usando pnpm
+    # pnpm install
+    ```
 
-## Running unit tests
+## Executando a Aplicação
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Depois de instalar as dependências, você pode iniciar o servidor de desenvolvimento.
+
+1.  **Inicie o servidor de desenvolvimento:**
+
+    ```bash
+    ng serve
+    ```
+
+    Este comando irá compilar o projeto e iniciar um servidor de desenvolvimento. A aplicação estará disponível em `http://localhost:4200/` por padrão.
+
+    * Se a porta 4200 estiver ocupada, o Angular CLI sugerirá uma porta alternativa.
+    * As alterações nos arquivos serão automaticamente recarregadas no navegador.
+
+2.  **Abra o navegador:**
+    Navegue até `http://localhost:4200/` em seu navegador para ver a aplicação em execução.
+
+## Estrutura de Assets e Favicon (Importante para Angular 16+)
+
+A partir do Angular v16, o Angular CLI adotou uma nova abordagem para o gerenciamento de assets públicos, utilizando a pasta `public/`.
+
+* **Favicon**: O arquivo `favicon.ico` (o ícone da aba do navegador) e outros ativos estáticos (como imagens globais que não são específicas de componentes) devem ser colocados na pasta `public/` na raiz do projeto.
+    * Certifique-se de que seu `favicon.ico` está em `public/favicon.ico`.
+    * A referência no `src/index.html` deve ser `href="favicon.ico"`.
+
+## Testes
+
+Para executar os testes unitários da aplicação:
 
 ```bash
 ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
