@@ -1,7 +1,38 @@
 <app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="toggleSidebarState()"></app-sidebar>
-
 <app-header [userName]="userNameFromStorage" (toggleSidebar)="toggleSidebarState()"></app-header>
 
-<div class="clients-list-container">
-  <p>Conteúdo da lista de clientes virá aqui...</p>
-</div>
+<div class="clients-list-main-content">
+  <div class="content-container"> <div class="list-header">
+      <div class="clients-info">
+        <h2>{{ totalClientsFound }} cliente{{ totalClientsFound !== 1 ? 's' : '' }} encontrado{{ totalClientsFound !== 1 ? 's' : '' }}:</h2>
+      </div>
+      <div class="clients-per-page">
+        Clientes por página:
+        <select [(ngModel)]="clientsPerPage" (change)="onClientsPerPageChange()">
+          <option [ngValue]="8">8</option>  
+          <option [ngValue]="16">16</option>  
+          <option [ngValue]="32">32</option>
+          <option [ngValue]="64">64</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="clients-cards-grid">
+      <ng-container *ngIf="clients.length > 0; else noClientsFound">
+        <app-client-card *ngFor="let client of clients" [client]="client"></app-client-card>
+      </ng-container>
+      <ng-template #noClientsFound>
+        <p class="placeholder-text">Nenhum cliente encontrado.</p>
+      </ng-template>
+    </div>
+
+    <div class="create-client-section">
+      <button class="create-client-button" (click)="onCreateClient()">Criar cliente</button>
+    </div>
+
+    <div class="paginator-section">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 0">Anterior</button>
+      <span> Página {{ currentPage + 1 }} de {{ totalPages }} </span> 
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages - 1">Próxima</button>
+    </div>
+  </div> </div>
