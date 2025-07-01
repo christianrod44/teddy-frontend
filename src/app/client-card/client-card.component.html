@@ -3,8 +3,10 @@
   <p class="client-info">Salário: {{ client.salary | currency:'BRL':'symbol':'1.2-2' }}</p> <p class="client-info">Empresa: {{ client.companyValuation | currency:'BRL':'symbol':'1.2-2' }}</p>
 
   <div class="card-actions">
-    <button class="action-button add" (click)="onAddClick()" title="Selecionar Cliente">
-      <img [src]="addIcon" alt="Selecionar">
+    <button class="action-button select-toggle" (click)="onToggleSelectionClick()" 
+            [title]="client.selected ? 'Remover seleção' : 'Selecionar Cliente'">
+      <img [src]="client.selected ? minusIcon : addIcon" 
+           [alt]="client.selected ? 'Remover seleção' : 'Selecionar'">
     </button>
     <button class="action-button edit" (click)="onEditClick()" title="Editar Cliente">
       <img [src]="editIcon" alt="Editar">

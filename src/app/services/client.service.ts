@@ -29,4 +29,7 @@ export class ClientService {
     return this.http.patch<Client>(`${BASE_URL}/users/${id}`, clientData);
   }
   
+  deleteClient(id: number): Observable<any> { // Mudamos para <any> pois não estamos esperando um tipo Client ou void no sucesso
+    return this.http.delete(`${BASE_URL}/users/${id}`, { responseType: 'text' });
+  }
 }

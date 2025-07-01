@@ -11,7 +11,7 @@
         <select [(ngModel)]="clientsPerPage" (change)="onClientsPerPageChange()">
           <option [ngValue]="8">8</option>  
           <option [ngValue]="16">16</option>  
-          <option [ngValue]="32">32</option>
+          <option [ngValue]="24">24</option>
           <option [ngValue]="64">64</option>
         </select>
       </div>
@@ -22,7 +22,9 @@
         <app-client-card
         *ngFor="let client of clients"
         [client]="client"
-        (editClient)="onEditClient(client)"></app-client-card>
+        (editClient)="onEditClient(client)"
+        (deleteClient)="onDeleteClient(client)"
+        (toggleSelection)="onToggleClientSelection(client)"></app-client-card>
       </ng-container>
       <ng-template #noClientsFound>
         <p class="placeholder-text">Nenhum cliente encontrado.</p>
@@ -40,10 +42,17 @@
     </div>
   </div> </div>
 
-  <app-client-form 
+<app-client-form 
   [isOpen]="isClientFormModalOpen"
   [clientToEdit]="selectedClientForEdit"
   (clientCreated)="onClientCreated($event)"
   (clientUpdated)="onClientUpdated($event)"
   (close)="onClientFormClose()">
 </app-client-form>
+
+<app-delete-client-modal
+  [isOpen]="isDeleteClientModalOpen"
+  [clientToDelete]="clientToDelete"
+  (confirmDelete)="onConfirmDelete($event)"
+  (cancelDelete)="onCloseDeleteModal()">
+</app-delete-client-modal>

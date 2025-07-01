@@ -1,0 +1,14 @@
+<div class="modal-overlay" *ngIf="isOpen">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Excluir cliente</h2>
+      <button class="close-button" (click)="onCancel()">X</button>
+    </div>
+    <div class="modal-body">
+      <p>Você está prestes a excluir o cliente: <strong>{{ clientToDelete?.name }}</strong></p>
+    </div>
+    <div class="modal-actions">
+      <button class="confirm-button" (click)="onConfirm()">Excluir cliente</button>
+    </div>
+  </div>
+</div>
