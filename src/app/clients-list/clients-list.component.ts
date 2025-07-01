@@ -78,7 +78,6 @@ export class ClientsListComponent implements OnInit {
     });
   }
 
-  // NOVO: Carrega clientes selecionados do localStorage
   loadSelectedClientsFromStorage(): void {
     const storedSelectedClients = localStorage.getItem('selectedClients');
     if (storedSelectedClients) {
@@ -86,36 +85,27 @@ export class ClientsListComponent implements OnInit {
     }
   }
 
-  // NOVO: Salva clientes selecionados no localStorage
   saveSelectedClientsToStorage(): void {
     localStorage.setItem('selectedClients', JSON.stringify(this.selectedClients));
   }
 
-  // NOVO: Sincroniza o estado 'selected' dos clientes exibidos com a lista de selecionados
   syncSelectedClients(): void {
     this.clients.forEach(client => {
       client.selected = this.selectedClients.some(selected => selected.id === client.id);
     });
   }
 
-  // NOVO: Lógica para adicionar/remover cliente da lista de selecionados
   onToggleClientSelection(client: Client): void {
     const index = this.selectedClients.findIndex(c => c.id === client.id);
 
     if (index > -1) {
-      // Cliente já está selecionado, então desseleciona
       this.selectedClients.splice(index, 1);
       client.selected = false;
     } else {
-      // Cliente não está selecionado, então seleciona
       this.selectedClients.push(client);
       client.selected = true;
     }
-    this.saveSelectedClientsToStorage(); // Salva a lista atualizada
-    // O `loadClients()` para recarregar a lista exibida não é estritamente necessário aqui,
-    // pois `client.selected` é atualizado diretamente e o Angular re-renderiza o card.
-    // Mas, se você tiver paginação e quiser garantir que o estado persista ao mudar de página e voltar,
-    // o `syncSelectedClients` em `loadClients` cuida disso.
+    this.saveSelectedClientsToStorage();
   }
 
   onClientsPerPageChange(): void {
@@ -192,10 +182,7 @@ export class ClientsListComponent implements OnInit {
     this.clientToDelete = undefined;
   }
 
-  // NOVO: Método para navegar para a página de clientes selecionados
   goToSelectedClients(): void {
-    // O Router é injetado no construtor
-    // Passamos os clientes selecionados via estado do router, que é uma forma segura
     this.router.navigateByUrl('/clients-selected', { state: { selectedClients: this.selectedClients } });
   }
 }

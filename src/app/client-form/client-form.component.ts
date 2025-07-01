@@ -68,7 +68,6 @@ export class ClientFormComponent implements OnInit, OnChanges {
     if (this.isEditMode && this.clientToEdit) {
       const clientIdAsNumber = Number(this.clientToEdit.id);
       if (isNaN(clientIdAsNumber)) {
-        console.error('Erro: ID do cliente não é um número válido para atualização.');
         alert('Não foi possível atualizar o cliente: ID inválido.');
         return;
       }
@@ -79,7 +78,6 @@ export class ClientFormComponent implements OnInit, OnChanges {
           this.onClose();
         },
         error: (err) => {
-          console.error('Erro ao atualizar cliente:', err);
           alert('Erro ao atualizar cliente: ' + (err.error.message || err.message));
         }
       });
@@ -90,7 +88,6 @@ export class ClientFormComponent implements OnInit, OnChanges {
           this.onClose();
         },
         error: (err) => {
-          console.error('Erro ao criar cliente:', err);
           alert('Erro ao criar cliente: ' + (err.error.message || err.message));
         }
       });

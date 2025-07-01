@@ -1,9 +1,7 @@
-/* src/app/clients-selected/clients-selected.component.scss */
-
 .selected-clients-main-content {
-  padding: 20px; /* Adapte ao espaçamento que você já usa */
-  max-width: 1200px; /* Adapte ao máximo de largura da sua aplicação */
-  margin: 20px auto; /* Centraliza o conteúdo */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
 }
 
 .list-header {
@@ -13,7 +11,7 @@
   margin-bottom: 20px;
 
   h2 {
-    font-size: 1.8em; /* Ajuste o tamanho da fonte se necessário */
+    font-size: 1.8em;
     color: #333;
     margin: 0;
   }
@@ -32,7 +30,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
-  position: relative; /* Para posicionamento absoluto dos botões */
+  position: relative;
 
   .client-name {
     font-size: 1.3em;
@@ -48,7 +46,7 @@
 
   .card-actions {
     display: flex;
-    justify-content: flex-end; /* Alinha o botão de remoção à direita */
+    justify-content: flex-end;
     margin-top: 15px;
 
     .action-button {
@@ -56,10 +54,10 @@
       border: none;
       cursor: pointer;
       padding: 5px;
-      margin-left: 10px; /* Espaço entre botões se houvesse mais */
+      margin-left: 10px;
 
       img {
-        width: 24px; /* Tamanho dos ícones */
+        width: 24px;
         height: 24px;
         transition: transform 0.2s ease-in-out;
       }
@@ -70,11 +68,8 @@
     }
 
     .select-toggle.remove-selection {
-        // Estilos específicos para o botão de remover seleção, se necessário
-        // Por exemplo, se você usar o mesmo ícone 'minus.png', mas quiser ele vermelho:
         img {
-            filter: hue-rotate(200deg) saturate(300%) brightness(80%) sepia(100%) hue-rotate(-20deg) saturate(1000%) brightness(120%); // Tenta deixar vermelho
-            // Ou simplesmente use uma imagem já vermelha (minus-red.png)
+            filter: hue-rotate(200deg) saturate(300%) brightness(80%) sepia(100%) hue-rotate(-20deg) saturate(1000%) brightness(120%);
         }
     }
   }
@@ -119,9 +114,8 @@
   }
 }
 
-/* Você pode precisar adicionar media queries para responsividade */
 @media (max-width: 768px) {
   .clients-cards-grid {
-    grid-template-columns: 1fr; /* Coluna única em telas menores */
+    grid-template-columns: 1fr;
   }
 }
