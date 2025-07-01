@@ -1,5 +1,5 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Client } from '../models/client.model';
 
 @Component({
@@ -15,20 +15,23 @@ import { Client } from '../models/client.model';
 export class ClientCardComponent {
 
   @Input() client!: Client;
+  @Output() editClient = new EventEmitter<Client>();
+  @Output() deleteClient = new EventEmitter<Client>();
+  @Output() addClient = new EventEmitter<Client>();
 
   addIcon: string = 'img/plus.png';
   editIcon: string = 'img/edit.png';
   deleteIcon: string = 'img/trash.png';
 
   onAddClick(): void {
-    console.log('Adicionar cliente:', this.client.name);
+    this.addClient.emit(this.client);
   }
 
   onEditClick(): void {
-    console.log('Editar cliente:', this.client.name);
+    this.editClient.emit(this.client);
   }
 
   onDeleteClick(): void {
-    console.log('Deletar cliente:', this.client.name);
+    this.deleteClient.emit(this.client);
   }
 }

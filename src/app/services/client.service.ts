@@ -25,5 +25,8 @@ export class ClientService {
     return this.http.post<Client>(`${BASE_URL}/users`, client);
   }
 
+  updateClient(id: number, clientData: { name?: string; salary?: number; companyValuation?: number }): Observable<Client> {
+    return this.http.patch<Client>(`${BASE_URL}/users/${id}`, clientData);
+  }
   
 }
