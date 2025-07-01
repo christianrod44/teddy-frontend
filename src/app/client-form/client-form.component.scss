@@ -1,0 +1,110 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 1.8em;
+      color: #333;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      font-weight: bold;
+      cursor: pointer;
+      color: #666;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #EC6724;
+      }
+    }
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+
+      &:focus {
+        border-color: #EC6724;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(236, 103, 36, 0.2);
+      }
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 600;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+
+      &.submit-button {
+        background-color: #EC6724;
+        color: white;
+
+        &:hover {
+          background-color: darken(#EC6724, 10%);
+          transform: translateY(-1px);
+        }
+      }
+
+      &.cancel-button {
+        background-color: #e0e0e0;
+        color: #555;
+
+        &:hover {
+          background-color: darken(#e0e0e0, 10%);
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+}

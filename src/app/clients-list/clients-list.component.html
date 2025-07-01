@@ -19,7 +19,10 @@
 
     <div class="clients-cards-grid">
       <ng-container *ngIf="clients.length > 0; else noClientsFound">
-        <app-client-card *ngFor="let client of clients" [client]="client"></app-client-card>
+        <app-client-card
+        *ngFor="let client of clients"
+        [client]="client"
+        (editClient)="onEditClient(client)"></app-client-card>
       </ng-container>
       <ng-template #noClientsFound>
         <p class="placeholder-text">Nenhum cliente encontrado.</p>
@@ -36,3 +39,11 @@
       <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages - 1">Próxima</button>
     </div>
   </div> </div>
+
+  <app-client-form 
+  [isOpen]="isClientFormModalOpen"
+  [clientToEdit]="selectedClientForEdit"
+  (clientCreated)="onClientCreated($event)"
+  (clientUpdated)="onClientUpdated($event)"
+  (close)="onClientFormClose()">
+</app-client-form>

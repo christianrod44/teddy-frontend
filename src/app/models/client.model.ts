@@ -1,5 +1,5 @@
 export interface Client {
-  id: string;
+  id: any;
   name: string;
   salary: number;
   companyValuation: number;

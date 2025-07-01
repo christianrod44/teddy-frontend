@@ -7,6 +7,7 @@ import { Client } from '../models/client.model';
 import { ClientService } from '../services/client.service';
 import { ClientApiResponse } from '../models/client-api-response.model';
 import { ClientCardComponent } from '../client-card/client-card.component';
+import { ClientFormComponent } from '../client-form/client-form.component';
 
 @Component({
   selector: 'app-clients-list',
@@ -16,7 +17,8 @@ import { ClientCardComponent } from '../client-card/client-card.component';
     HeaderComponent,
     SidebarComponent,
     FormsModule,
-    ClientCardComponent
+    ClientCardComponent,
+    ClientFormComponent
   ],
   templateUrl: './clients-list.component.html',
   styleUrl: './clients-list.component.scss'
@@ -31,6 +33,9 @@ export class ClientsListComponent implements OnInit {
   clientsPerPage: number = 16;
   currentPage: number = 0;
   totalPages: number = 1;
+
+  isClientFormModalOpen: boolean = false;
+  selectedClientForEdit?: Client;
 
   constructor(private clientService: ClientService) { }
 
@@ -75,6 +80,29 @@ export class ClientsListComponent implements OnInit {
   }
 
   onCreateClient(): void {
-    alert('Funcionalidade de criar cliente será implementada!');
+    this.selectedClientForEdit = undefined;
+    this.isClientFormModalOpen = true;
+  }
+
+  onEditClient(client: Client): void {
+    this.selectedClientForEdit = client;
+    this.isClientFormModalOpen = true;
+  }
+
+  onClientFormClose(): void {
+    this.isClientFormModalOpen = false;
+    this.selectedClientForEdit = undefined;
+  }
+
+  onClientCreated(newClient: Client): void {
+    alert(`Cliente '${newClient.name}' criado com sucesso!`);
+    this.loadClients();
+    this.onClientFormClose();
+  }
+
+  onClientUpdated(updatedClient: Client): void {
+    alert(`Cliente '${updatedClient.name}' atualizado com sucesso!`);
+    this.loadClients();
+    this.onClientFormClose();
   }
 }
